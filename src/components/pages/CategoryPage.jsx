@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import categories from '../../data/categories';
+import locations from '../../data/locations';
 
-class Frontpage extends Component {
+class CategoryPage extends Component {
   render() {
     return (
       <div className="container p-4">
-        <h1>Categories</h1>
+        <h1>Locations</h1>
         <br />
-        {categories.map(category => (
+        {this.props.parent}
+        {locations.map(location => (
           <Link
-            to={`/Jobs/${category.slug}`}
+            to={`/Jobs/${location.slug}/`}
             className="text-black text-sm md:text-xl font-bold block mb-4"
           >
-            {category.title}
+            {location.title}
           </Link>
         ))}
       </div>
@@ -21,4 +22,4 @@ class Frontpage extends Component {
   }
 }
 
-export default Frontpage;
+export default CategoryPage;

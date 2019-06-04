@@ -4,7 +4,7 @@ import GithubCorner from 'react-github-corner';
 
 const Fullpage = ({ children }) => {
   return (
-    <div className="uk-container uk-padding">
+    <div className="container mx-auto">
       <GithubCorner
         href={'https://github.com/soirs/frameworks-exam'}
         bannerColor="#000"
