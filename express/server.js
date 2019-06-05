@@ -43,6 +43,7 @@ app.use((req, res, next) => {
 /****** DATA *****/
 
 const mongoURI = process.env.MONGO_URI;
+const db = mongoURI;
 
 let options = {
   weekday: 'short',
@@ -51,7 +52,6 @@ let options = {
   day: 'numeric',
 };
 const timestamp = new Date().toLocaleTimeString('dk-Da', options);
-const db = mongoURI;
 
 mongoose
   .connect(db, {
@@ -65,64 +65,11 @@ mongoose
   )
   .catch(err => console.error(`${'\n'}❌ ❌ ❌  CONNECTION ERROR: `, err));
 
-// JOB SCHEMA
-let jobSchema = new mongoose.Schema(
-  {
-    author: String,
-    company: String,
-    title: String,
-    category: String,
-    location: String,
-    description: String,
-    views: Number,
-  },
-  {
-    timestamps: {
-      createdAt: true,
-      updatedAt: false,
-    },
-  }
-);
-const Jobs = mongoose.model('listings', jobSchema);
-
 /****** DATA *****/
 /**** ROUTES ****/
-// GET
-// GET
-// GET
-// GET
-app.get('/api/jobs/', (req, res) => {
-  Jobs.find({}, (err, jobs) => res.json(jobs));
-});
 
-app.get('/api/jobs/:category', (req, res) => {
-  Jobs.find({}, (err, jobs) => res.json(jobs));
-});
-
-// POST
-// POST
-// POST
-// POST
-app.post('/api/jobs/', (req, res) => {
-  let newJob = new Jobs({
-    author: req.body.author,
-    title: req.body.title,
-    category: req.body.category,
-    location: req.body.location,
-    description: req.body.description,
-    views: 1,
-  });
-  newJob
-    .save()
-    .then(result => {
-      res.json({
-        msg: `Hey! __${req.body.title}__, your job listing for >> ${
-          req.body.title
-        } << has been posted`,
-      });
-    })
-    .catch(err => console.log(err));
-});
+let jobsRouter = require('./router/jobs_router')(app);
+app.use('/api/jobs', jobsRouter);
 
 /**** Reroute all unknown requests to the React index.html ****/
 app.get('/*', (req, res) => {

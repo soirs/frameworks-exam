@@ -1,36 +1,36 @@
 const projects = [
   // Hovedstaden
   {
-    slug: `Hovedstaden`,
-    title: `Region Hovedstaden`,
+    slug: `hovedstaden`,
+    title: `Hovedstaden`,
     className: ``,
     description: ``,
   },
   // Midtjylland
   {
-    slug: `Midtjylland`,
-    title: `Region Midtjylland`,
+    slug: `midtjylland`,
+    title: `Midtjylland`,
     className: ``,
     description: ``,
   },
   // Syddanmark
   {
-    slug: `Syddanmark`,
-    title: `Region Syddanmark`,
+    slug: `syddanmark`,
+    title: `Syddanmark`,
     className: ``,
     description: ``,
   },
   // Nordjylland
   {
-    slug: `Nordjylland`,
-    title: `Region Nordjylland`,
+    slug: `nordjylland`,
+    title: `Nordjylland`,
     className: ``,
     description: ``,
   },
   // Sjælland
   {
-    slug: `Sjaelland`,
-    title: `Region Sjælland`,
+    slug: `sjælland`,
+    title: `Sjælland`,
     className: ``,
     description: ``,
   },

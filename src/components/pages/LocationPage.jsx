@@ -4,17 +4,27 @@ import locations from '../../data/locations';
 
 class LocationPage extends Component {
   render() {
+    const { category } = this.props.match.params;
+    console.log(category + '');
+
     return (
       <div className="container p-4">
-        <h1>Locations</h1>
+        <h1 className="text-center font-bold">Locations</h1>
         <br />
         {locations.map(location => (
-          <Link
-            to={`/Jobs/${location.slug}`}
-            className="text-black text-sm md:text-xl font-bold block mb-4"
+          <div
+            className="max-w-sm rounded overflow-hidden shadow-lg"
+            key={location.slug}
           >
-            {location.title}
-          </Link>
+            <div className="px-6 py-4">
+              <Link
+                to={`/jobs/${category}/${location.slug}/`}
+                className="font-bold text-xl mb-2"
+              >
+                {location.title}
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     );

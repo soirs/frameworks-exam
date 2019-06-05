@@ -12,17 +12,18 @@ const categoryOptions = [
 ];
 // For location dropdown
 const locationOptions = [
-  { value: 'Hovedstaden', label: 'Region Hovedstaden' },
-  { value: 'Midtjylland', label: 'Region Midtjylland' },
-  { value: 'Syddanmark', label: 'Region Syddanmark' },
-  { value: 'Nordjylland', label: 'Region Nordjylland' },
-  { value: 'Sjælland', label: 'Region Sjælland' },
+  { value: 'hovedstaden', label: 'Hovedstaden' },
+  { value: 'midtjylland', label: 'Midtjylland' },
+  { value: 'syddanmark', label: 'Syddanmark' },
+  { value: 'nordjylland', label: 'Nordjylland' },
+  { value: 'sjaelland', label: 'Sjælland' },
 ];
 
 class NewListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      slug: '',
       title: '',
       category: '',
       location: '',
@@ -60,9 +61,10 @@ class NewListing extends Component {
     this.setState({ description: event.target.value });
   }
 
-  PublishJobListing(title, category, location, description) {
+  PublishJobListing(slug, title, category, location, description) {
     let newJob = {
       author: 'Danske Bank',
+      slug: slug,
       title: title,
       category: category.label,
       location: location.label,
@@ -83,6 +85,7 @@ class NewListing extends Component {
       .then(response => response.json())
       // .then(response => console.log(response))
       .then(response => {
+        this.setState({ slug: '' });
         this.setState({ author: '' });
         this.setState({ title: '' });
         this.setState({ category: '' });
@@ -99,8 +102,8 @@ class NewListing extends Component {
   // SUBMIT
   handleSubmit(event) {
     event.preventDefault();
-    const { title, category, location, description } = this.state;
-    this.PublishJobListing(title, category, location, description);
+    const { slug, title, category, location, description } = this.state;
+    this.PublishJobListing(slug, title, category, location, description);
   }
 
   render() {

@@ -1,37 +1,37 @@
 const projects = [
   // IT
   {
-    slug: `IT`,
-    title: `Information Technology`,
+    slug: `it`,
+    title: `IT`,
     className: ``,
     description: ``,
   },
   // Law
   {
-    slug: `Law`,
+    slug: `law`,
     title: `Law`,
     className: ``,
     description: ``,
   },
   // Healthcare
   {
-    slug: `Healthcare`,
+    slug: `healthcare`,
     title: `Healthcare`,
     className: ``,
     description: ``,
   },
   // Education
   {
-    slug: `Education`,
+    slug: `education`,
     title: `Education`,
     className: ``,
     description: ``,
   },
   // Sales
   {
-    slug: `Sales`,
+    slug: `sales`,
     title: `Sales`,
-    className: `portfolio`,
+    className: ``,
     description: ``,
   },
 ];

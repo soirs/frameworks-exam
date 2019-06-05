@@ -6,15 +6,22 @@ class Frontpage extends Component {
   render() {
     return (
       <div className="container p-4">
-        <h1>Categories</h1>
+        <h1 className="text-center font-bold">Categories</h1>
         <br />
         {categories.map(category => (
-          <Link
-            to={`/Jobs/${category.slug}`}
-            className="text-black text-sm md:text-xl font-bold block mb-4"
+          <div
+            className="max-w-sm rounded overflow-hidden shadow-lg"
+            key={category.slug}
           >
-            {category.title}
-          </Link>
+            <div className="px-6 py-4">
+              <Link
+                to={`/jobs/${category.slug}/`}
+                className="font-bold text-xl mb-2"
+              >
+                {category.title}
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     );
