@@ -20,7 +20,7 @@
     "react-select": "^3.0.4"
   },
   "scripts": {
-    "start": "cd express && nodemon server.js",
+    "start": "cd express && node server.js",
     "start:dev": "yarn tailwind:css && react-scripts start",
     "build": "yarn tailwind:css && react-scripts build",
     "test": "react-scripts test",

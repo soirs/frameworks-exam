@@ -19,7 +19,6 @@ module.exports = () => {
       },
       (err, jobs) => {
         res.json(jobs);
-        // res.send(req.params.category)
       }
     ).sort('createdAt');
   });
@@ -32,6 +31,17 @@ module.exports = () => {
       },
       (err, jobs) => res.json(jobs)
     ).sort('createdAt');
+  });
+
+  router.get('/:category/:id', (req, res) => {
+    Jobs.find(
+      {
+        _id: req.params.id,
+      },
+      (err, jobs) => {
+        res.json(jobs);
+      }
+    );
   });
 
   // POST

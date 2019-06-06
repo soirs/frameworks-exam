@@ -13,6 +13,7 @@ import NewListing from './components/pages/NewListing';
 import Login from './components/pages/Login';
 import LocationPage from './components/pages/LocationPage';
 import JobsInLocation from './components/pages/JobsInLocation';
+import SingleJob from './components/pages/SingleJob';
 
 class App extends Component {
   API_URL = process.env.REACT_APP_API_URL;
@@ -20,7 +21,7 @@ class App extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      jobs: []
+      jobs: [],
     };
   }
 
@@ -84,6 +85,11 @@ class App extends Component {
               render={props => (
                 <JobsInLocation {...props} jobs={this.state.jobs} />
               )}
+            />
+            {/* ROUTE by id */}
+            <Route
+              path={'/jobs/:category/:location/:id'}
+              render={props => <SingleJob {...props} />}
             />
 
             {/* ROUTE 404 */}
