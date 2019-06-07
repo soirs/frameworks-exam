@@ -32,8 +32,6 @@ class JobsInLocation extends Component {
   }
   render() {
     const { category, location } = this.props.match.params;
-    console.log(category + ' ' + location);
-    console.log(this.state.jobs);
     return (
       <div>
         <h1>
@@ -41,7 +39,7 @@ class JobsInLocation extends Component {
         </h1>
         {this.state.jobs.map(jobs => (
           <div
-            className="max-w-sm rounded overflow-hidden shadow-lg"
+            className="text-center max-w rounded overflow-hidden bg-teal-600 text-white mb-2 rounded"
             key={jobs._id}
           >
             <div className="px-6 py-4">

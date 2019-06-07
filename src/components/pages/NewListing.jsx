@@ -4,7 +4,7 @@ import Select from 'react-select';
 
 // For category dropdown
 const categoryOptions = [
-  { value: 'it', label: 'IT' },
+  { value: 'frontend', label: 'Frontend' },
   { value: 'law', label: 'Law' },
   { value: 'healthcare', label: 'Healthcare' },
   { value: 'education', label: 'Education' },

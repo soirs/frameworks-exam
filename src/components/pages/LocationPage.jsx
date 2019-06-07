@@ -13,7 +13,7 @@ class LocationPage extends Component {
         <br />
         {locations.map(location => (
           <div
-            className="max-w-sm rounded overflow-hidden shadow-lg"
+            className="text-center max-w rounded overflow-hidden bg-teal-600 text-white mb-2"
             key={location.slug}
           >
             <div className="px-6 py-4">

@@ -14,6 +14,7 @@ import Login from './components/pages/Login';
 import LocationPage from './components/pages/LocationPage';
 import JobsInLocation from './components/pages/JobsInLocation';
 import SingleJob from './components/pages/SingleJob';
+import ShowAll from './components/pages/ShowAll';
 
 class App extends Component {
   API_URL = process.env.REACT_APP_API_URL;
@@ -40,7 +41,6 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ jobs: data });
-        console.log(data);
       })
       .catch(error => {
         console.error('Error when fetching jobs: ', error);
@@ -94,6 +94,12 @@ class App extends Component {
             <Route
               path={'/jobs/:category/:location/:id'}
               render={props => <SingleJob jobs={this.state.jobs} {...props} />}
+            />
+
+            {/* ROUTE show-all */}
+            <Route
+              path={'/show-all'}
+              render={props => <ShowAll jobs={this.state.jobs} {...props} />}
             />
 
             {/* ROUTE 404 */}

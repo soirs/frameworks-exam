@@ -4,7 +4,6 @@ class SingleJob extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPublished: false,
       singleJob: [],
     };
   }
@@ -37,11 +36,20 @@ class SingleJob extends Component {
 
   render() {
     return (
-      <div>
+      <div className="flex justify-center mt-10">
         {this.state.singleJob.map(job => (
-          <div className="container" key={job._id}>
-            <p className="title">Title: {job.title}</p>
-            <p className="description">Description: {job.description}</p>
+          <div
+            className="container w-full max-w-md bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 text-xl"
+            key={job._id}
+          >
+            <p className="title">
+              <span className="font-bold">Title:</span> <br />
+              {job.title}
+            </p>
+            <p className="description">
+              <span className="font-bold">Description:</span> <br />
+              {job.description}
+            </p>
           </div>
         ))}
       </div>
