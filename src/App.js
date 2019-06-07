@@ -47,19 +47,17 @@ class App extends Component {
       });
   }
 
-  getRecipeFromId(id) {
-    return this.state.recipes.find(elm => elm.id === Number(id));
-  }
-
-  filterByCategory(category) {
-    return this.state.jobs.filter(e => e.jobs.includes(category));
+  updateLoginState() {
+    this.setState({
+      isLoggedIn: true,
+    });
   }
 
   render(props) {
     return (
       <Fullpage>
         <Router>
-          <Header />
+          <Header loginStatus={this.state.isLoggedIn}/>
           <Switch>
             {/* ROUTE Root */}
             <Route exact path={'/'} render={props => <Frontpage />} />
@@ -70,7 +68,13 @@ class App extends Component {
               render={props => <NewListing />}
             />
             {/* ROUTE Login */}
-            <Route exact path={'/Login'} render={props => <Login />} />
+            <Route
+              exact
+              path={'/login'}
+              render={props => (
+                <Login updateLoginState={this.updateLoginState} />
+              )}
+            />
 
             {/* ROUTE Jobs/:category */}
             <Route

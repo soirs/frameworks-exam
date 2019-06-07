@@ -7,9 +7,7 @@
   "description": "Frameworks exam June 2019",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "dotenv": "^8.0.0",
     "enzyme": "^3.9.0",
-    "express": "^4.17.1",
     "mongoose": "^5.5.12",
     "morgan": "^1.9.1",
     "react": "^16.8.6",
@@ -25,7 +23,7 @@
     "build": "yarn tailwind:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "preinstall": "cd express && npm install",
+    "preinstall": "cd express && yarn",
     "update": "yarn add npm-check-updates --dev && ncu -u && yarn && yarn upgrade && yarn global upgrade && ncu -u && yarn outdated",
     "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css"
   },

@@ -91,11 +91,9 @@ class NewListing extends Component {
         this.setState({ category: '' });
         this.setState({ location: '' });
         this.setState({ description: '' });
-        // this.setState({ isPublished: true });
-        // return this.props.getAnswers();
       })
       .catch(error => {
-        console.error('Error when adding answer: ', error);
+        console.error('Error when adding listing: ', error);
       });
   }
 
@@ -195,7 +193,6 @@ class NewListing extends Component {
               className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
               onClick={this.handleSubmit}
-              disabled={!this.state.description}
             >
               Publish new job listing
             </button>
