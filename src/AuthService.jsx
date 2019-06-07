@@ -36,9 +36,7 @@ class AuthService {
 
     // Checks value of token
     // Should be a catch all for all null, undefined or "" values
-    if(this.getToken() === undefined || this.getToken() === "" || this.getToken() === null || this.getToken() === "undefined"){
-      isLoggedIn = false;
-  }
+    if (this.getToken() == null);
 
     return isLoggedIn;
   }

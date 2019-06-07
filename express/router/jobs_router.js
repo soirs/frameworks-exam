@@ -33,7 +33,7 @@ module.exports = () => {
     ).sort('createdAt');
   });
 
-  router.get('/:category/:id', (req, res) => {
+  router.get('/:category/:location/:id', (req, res) => {
     Jobs.find(
       {
         _id: req.params.id,

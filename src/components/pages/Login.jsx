@@ -41,16 +41,18 @@ class Login extends Component {
         });
   }
 
-  onLogin() {
-    this.Auth.login(this.state.username, this.state.password)
-      .then(response => {
-        console.log('Authentication:', response.msg);
-        this.getData();
-      })
-      .catch(error => {
-        // TODO: Inform the user about the error
-        console.error('Error authenticating:', error);
-      });
+  handleLogin(username, password) {
+    this.Auth.login(username, password).then(response => {
+      this.Auth.login(this.state.username, this.state.password)
+        .then(response => {
+          console.log('Authentication:', response.msg);
+          this.getData();
+        })
+        .catch(error => {
+          // TODO: Inform the user about the error
+          console.error('Error authenticating:', error);
+        });
+    });
   }
 
   createUser(username, password) {
@@ -74,6 +76,11 @@ class Login extends Component {
       });
   }
 
+  onLogin(e) {
+    e.preventDefault();
+    const { username, password } = this.state;
+    this.handleLogin(username, password);
+  }
   onCreate(e) {
     e.preventDefault();
     const { username, password } = this.state;

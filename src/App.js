@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <Fullpage>
         <Router>
-          <Header loginStatus={this.state.isLoggedIn}/>
+          <Header loginStatus={this.state.isLoggedIn} />
           <Switch>
             {/* ROUTE Root */}
             <Route exact path={'/'} render={props => <Frontpage />} />
@@ -93,7 +93,7 @@ class App extends Component {
             {/* ROUTE by id */}
             <Route
               path={'/jobs/:category/:location/:id'}
-              render={props => <SingleJob {...props} />}
+              render={props => <SingleJob jobs={this.state.jobs} {...props} />}
             />
 
             {/* ROUTE 404 */}

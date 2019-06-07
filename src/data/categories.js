@@ -1,8 +1,8 @@
 const projects = [
   // IT
   {
-    slug: `it`,
-    title: `IT`,
+    slug: `frontend`,
+    title: `Frontend`,
     className: ``,
     description: ``,
   },
